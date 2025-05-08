@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "ea87e892-c36a-45bb-9edc-4f888ac23815",
+		"name": "Prueba Técnica Kuantaz API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9957150"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:85/api/beneficios-procesados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "85",
+					"path": [
+						"api",
+						"beneficios-procesados"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
