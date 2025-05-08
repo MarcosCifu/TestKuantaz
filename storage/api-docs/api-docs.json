@@ -1,0 +1,168 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Prueba Técnica Kuantaz",
+        "description": "Documentación de la API para la prueba técnica de Kuantaz sobre beneficios.",
+        "contact": {
+            "email": "tu_email@ejemplo.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://my-default-host.com",
+            "description": "Servidor Principal de la API"
+        }
+    ],
+    "paths": {
+        "/api/beneficios-procesados": {
+            "get": {
+                "tags": [
+                    "Beneficios"
+                ],
+                "summary": "Obtiene los beneficios procesados, agrupados y filtrados por año.",
+                "description": "Devuelve una lista de beneficios agrupados por año, con totales y fichas asociadas, filtrados por montos y ordenados de mayor a menor año.",
+                "operationId": "obtenerBeneficiosProcesados",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "year": {
+                                                        "type": "integer",
+                                                        "example": 2023
+                                                    },
+                                                    "num": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "monto_total_año": {
+                                                        "type": "integer",
+                                                        "example": 150000
+                                                    },
+                                                    "beneficios": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id_programa": {
+                                                                    "type": "integer",
+                                                                    "example": 147
+                                                                },
+                                                                "monto": {
+                                                                    "type": "integer",
+                                                                    "example": 40000
+                                                                },
+                                                                "fecha_recepcion": {
+                                                                    "type": "string",
+                                                                    "format": "date",
+                                                                    "example": "09/11/2023"
+                                                                },
+                                                                "fecha": {
+                                                                    "type": "string",
+                                                                    "format": "date",
+                                                                    "example": "2023-11-09"
+                                                                },
+                                                                "ano": {
+                                                                    "type": "string",
+                                                                    "example": "2023"
+                                                                },
+                                                                "view": {
+                                                                    "type": "boolean",
+                                                                    "example": true
+                                                                },
+                                                                "ficha": {
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "integer",
+                                                                            "example": 922
+                                                                        },
+                                                                        "nombre": {
+                                                                            "type": "string",
+                                                                            "example": "Emprende"
+                                                                        },
+                                                                        "id_programa": {
+                                                                            "type": "integer",
+                                                                            "example": 147
+                                                                        },
+                                                                        "url": {
+                                                                            "type": "string",
+                                                                            "example": "emprende"
+                                                                        },
+                                                                        "categoria": {
+                                                                            "type": "string",
+                                                                            "example": "trabajo"
+                                                                        },
+                                                                        "descripcion": {
+                                                                            "type": "string",
+                                                                            "example": "Fondos concursables para nuevos negocios"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 500
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ocurrió un error al procesar los beneficios."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Beneficios",
+            "description": "Beneficios"
+        }
+    ]
+}
